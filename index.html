@@ -32,26 +32,43 @@
 
     header {
       background-color: #0e0e0e;
-      padding: 30px;
-      text-align: center;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     header img {
-      width: 300px;
+      width: 150px;
       border-radius: 50%;
-      margin-bottom: 15px;
     }
 
     nav a {
-      margin: 0 20px;
+      margin: 0 15px;
       text-decoration: none;
       color: #f8f8f8;
       font-weight: bold;
-      font-size: 1.2em;
+      font-size: 1.1em;
     }
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    /* Bouton notifications dans le header */
+    #notif-button {
+      background: #ff8800;
+      color: black; /* texte noir */
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: background 0.3s;
+    }
+
+    #notif-button:hover {
+      background: #e06f00;
     }
 
     section {
@@ -194,38 +211,17 @@
     .twitter { background-color: #1DA1F2; }
     .discord { background-color: #5865F2; }
     .youtube { background-color: #FF0000; }
-
-    /* Bouton notifications flottant (en haut à droite) */
-    #notif-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #ff8800;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      transition: transform 0.2s, background 0.3s;
-      z-index: 1000;
-    }
-
-    #notif-button:hover {
-      transform: scale(1.05);
-      background: #e06f00;
-    }
   </style>
 </head>
 <body>
   <header>
     <img src="HOG_Prod_Logo_couleurs_3.png" alt="Photo de profil" />
-    <h1>HallofGameFR</h1>
     <nav>
       <a href="#accueil">Accueil</a>
       <a href="#videos">Vidéos</a>
       <a href="#schedule">Planning</a>
       <a href="#contact">Contact</a>
+      <button id="notif-button">🔔 Activer les notifications</button>
     </nav>
   </header>
 
@@ -276,9 +272,6 @@
   <footer>
     <p>© 2025 - HallofGameFR</p>
   </footer>
-
-  <!-- Bouton notifications -->
-  <div id="notif-button">🔔 Activer les notifications</div>
 
   <script>
     function updateSchedule() {
@@ -331,6 +324,7 @@
           await OneSignal.User.PushSubscription.optIn();
           notifBtn.textContent = "✅ Notifications activées";
           notifBtn.style.background = "#28a745"; // vert
+          notifBtn.style.color = "white";
         } else {
           notifBtn.textContent = "🔔 Déjà activé";
         }
@@ -339,5 +333,6 @@
   </script>
 </body>
 </html>
+
 
 
