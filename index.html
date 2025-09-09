@@ -194,6 +194,27 @@
     .twitter { background-color: #1DA1F2; }
     .discord { background-color: #5865F2; }
     .youtube { background-color: #FF0000; }
+
+    /* Bouton notifications flottant */
+    #notif-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff8800;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s, background 0.3s;
+      z-index: 1000;
+    }
+
+    #notif-button:hover {
+      transform: scale(1.05);
+      background: #e06f00;
+    }
   </style>
 </head>
 <body>
@@ -256,6 +277,9 @@
     <p>© 2025 - HallofGameFR</p>
   </footer>
 
+  <!-- Bouton notifications -->
+  <div id="notif-button">🔔 Activer les notifications</div>
+
   <script>
     function updateSchedule() {
       const events = document.querySelectorAll('.event-time');
@@ -297,6 +321,22 @@
       navigator.serviceWorker.register("/hallofgamefrsite/pwa-sw.js")
         .then(() => console.log("PWA Service Worker actif"));
     }
+
+    // 👉 Bouton OneSignal
+    const notifBtn = document.getElementById("notif-button");
+    notifBtn.addEventListener("click", async () => {
+      window.OneSignalDeferred.push(async function(OneSignal) {
+        const status = await OneSignal.User.PushSubscription.optedIn;
+        if (!status) {
+          await OneSignal.User.PushSubscription.optIn();
+          notifBtn.textContent = "✅ Notifications activées";
+          notifBtn.style.background = "#28a745"; // vert
+        } else {
+          notifBtn.textContent = "🔔 Déjà activé";
+        }
+      });
+    });
   </script>
 </body>
 </html>
+
