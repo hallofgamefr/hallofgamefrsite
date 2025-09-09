@@ -1,0 +1,20 @@
+{
+  "name": "Hall of Game",
+  "short_name": "HOG",
+  "start_url": "/hallofgamefrsite/index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff0000",
+  "icons": [
+    {
+      "src": "HOG_Logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "HOG_Logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
