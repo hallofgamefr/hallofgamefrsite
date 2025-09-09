@@ -54,23 +54,6 @@
       text-decoration: underline;
     }
 
-    /* Bouton notifications intégré dans la nav */
-    #notif-button {
-      background: #ff8800;
-      padding: 10px 18px;
-      border-radius: 20px;
-      margin-left: 15px;
-      color: black; /* texte noir */
-      font-weight: bold;
-      transition: background 0.3s;
-      text-decoration: none;
-    }
-
-    #notif-button:hover {
-      background: #e06f00;
-      color: black;
-    }
-
     section {
       padding: 60px;
       text-align: center;
@@ -83,137 +66,30 @@
       color: #fefefe;
     }
 
-    /* Accueil */
-    #accueil img {
-      width: 800px;
+    /* Bouton notifications en haut à droite (fixe) */
+    #notif-button {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      background: #ff8800;
+      color: black; /* texte noir */
+      padding: 10px 18px;
       border-radius: 20px;
-      margin-top: 30px;
-      max-width: 100%;
-    }
-
-    #accueil p {
-      font-size: 1.6em;
-      font-weight: 600;
-    }
-
-    /* Vidéos */
-    #videos .video-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
-    #videos .video-item {
-      width: 1000px;
-      max-width: 95%;
-    }
-
-    #videos .video-item iframe {
-      width: 100%;
-      height: 560px;
-      border-radius: 12px;
-    }
-
-    /* Schedule */
-    #schedule {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 50px auto;
-      text-align: center;
-      background-color: #0e0e0e;
-      color: #fff;
-      border-radius: 12px;
-    }
-
-    #schedule h2 {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-
-    .upcoming h3 {
-      font-size: 2em;
-      margin-bottom: 25px;
-    }
-
-    .events-list {
-      list-style: none;
-      padding: 0;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .events-list li {
-      display: flex;
-      flex-direction: column;
-      background: #222;
-      padding: 20px 25px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      font-weight: 600;
-      color: #eee;
-      font-size: 1.3em;
-    }
-
-    .event-time {
-      font-size: 1.2em;
-      color: #ffffff;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .countdown {
-      font-size: 1em;
-      color: #ff8800;
-      margin-top: 5px;
-    }
-
-    .event-link a {
-      color: #9146FF;
       font-weight: bold;
-      text-decoration: none;
-      font-size: 1em;
+      cursor: pointer;
+      z-index: 2000;
+      transition: background 0.3s;
     }
 
-    .event-link a:hover {
-      text-decoration: underline;
+    #notif-button:hover {
+      background: #e06f00;
     }
-
-    /* Boutons réseaux sociaux */
-    .socials {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 30px;
-      border-radius: 12px;
-      font-size: 18px;
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-    }
-
-    .twitch { background-color: #9146FF; }
-    .instagram { background-color: #E1306C; }
-    .twitter { background-color: #1DA1F2; }
-    .discord { background-color: #5865F2; }
-    .youtube { background-color: #FF0000; }
   </style>
 </head>
 <body>
+  <!-- Bouton notifications dans le coin -->
+  <div id="notif-button">🔔 Activer les notifications</div>
+
   <header>
     <img src="HOG_Prod_Logo_couleurs_3.png" alt="Photo de profil" />
     <h1>HallofGameFR</h1>
@@ -222,7 +98,6 @@
       <a href="#videos">Vidéos</a>
       <a href="#schedule">Planning</a>
       <a href="#contact">Contact</a>
-      <a id="notif-button" href="#">🔔 Activer les notifications</a>
     </nav>
   </header>
 
@@ -231,91 +106,11 @@
     <img src="20250824_211617.jpg" alt="Photo accueil">
   </section>
 
-  <section id="videos">
-    <h2> Dernières Vidéos</h2>
-    <div class="video-list">
-      <div class="video-item">
-        <iframe src="https://player.twitch.tv/?video=2555577644&parent=hallofgamefr.github.io" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-
-  <section id="schedule">
-    <h2>Stream Schedule</h2>
-    <div class="upcoming">
-      <h3>À venir</h3>
-      <ul class="events-list">
-        <li>
-          <div class="event-time" data-datetime="2025-09-16T19:00:00Z"></div>
-          <div class="event-title">MERCATO</div>
-          <div class="event-link"><a href="https://www.twitch.tv/hallofgamefr" target="_blank"><i class="fab fa-twitch"></i> Regarder en direct</a></div>
-        </li>
-        <li>
-          <div class="event-time" data-datetime="2025-09-21T20:00:00Z"></div>
-          <div class="event-title">Overnight</div>
-          <div class="event-link"><a href="https://www.twitch.tv/hallofgamefr" target="_blank"><i class="fab fa-twitch"></i> Regarder en direct</a></div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="socials">
-      <a href="https://www.twitch.tv/hallofgamefr" target="_blank" class="btn twitch"><i class="fab fa-twitch"></i> Twitch</a>
-      <a href="https://www.instagram.com/hallofgamefrr?igsh=MXRlajVqbHgxcTV5Mw==" target="_blank" class="btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="https://x.com/HallofGameFR?t=uo_EouL0jlC2ZMI9X7R_4A&s=09" target="_blank" class="btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
-      <a href="https://discord.gg/rTv7QfeU" target="_blank" class="btn discord"><i class="fab fa-discord"></i> Discord</a>
-      <a href="https://youtube.com/tonpseudo" target="_blank" class="btn youtube"><i class="fab fa-youtube"></i> YouTube</a>
-    </div>
-  </section>
-
   <footer>
     <p>© 2025 - HallofGameFR</p>
   </footer>
 
   <script>
-    function updateSchedule() {
-      const events = document.querySelectorAll('.event-time');
-
-      events.forEach(event => {
-        const dateUTC = event.dataset.datetime;
-        if (!dateUTC) return;
-
-        const date = new Date(dateUTC);
-        event.textContent = date.toLocaleString([], {
-          weekday: 'long',
-          hour: '2-digit',
-          minute: '2-digit'
-        });
-
-        const countdown = document.createElement('div');
-        countdown.classList.add('countdown');
-        event.parentNode.appendChild(countdown);
-
-        setInterval(() => {
-          const now = new Date();
-          const diff = date - now;
-          if (diff > 0) {
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            countdown.textContent = `Dans ${hours}h ${minutes}m ${seconds}s`;
-          } else {
-            countdown.textContent = 'En direct !';
-          }
-        }, 1000);
-      });
-    }
-
-    updateSchedule();
-
-    // 👉 PWA Service Worker
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/hallofgamefrsite/pwa-sw.js")
-        .then(() => console.log("PWA Service Worker actif"));
-    }
-
     // 👉 Bouton OneSignal
     const notifBtn = document.getElementById("notif-button");
     notifBtn.addEventListener("click", async () => {
@@ -334,6 +129,7 @@
   </script>
 </body>
 </html>
+
 
 
 
