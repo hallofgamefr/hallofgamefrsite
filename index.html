@@ -32,43 +32,43 @@
 
     header {
       background-color: #0e0e0e;
-      padding: 20px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 30px;
+      text-align: center;
     }
 
     header img {
-      width: 150px;
+      width: 300px;
       border-radius: 50%;
+      margin-bottom: 15px;
     }
 
     nav a {
-      margin: 0 15px;
+      margin: 0 20px;
       text-decoration: none;
       color: #f8f8f8;
       font-weight: bold;
-      font-size: 1.1em;
+      font-size: 1.2em;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    /* Bouton notifications dans le header */
+    /* Bouton notifications intégré dans la nav */
     #notif-button {
       background: #ff8800;
-      color: black; /* texte noir */
       padding: 10px 18px;
       border-radius: 20px;
+      margin-left: 15px;
+      color: black; /* texte noir */
       font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       transition: background 0.3s;
+      text-decoration: none;
     }
 
     #notif-button:hover {
       background: #e06f00;
+      color: black;
     }
 
     section {
@@ -216,12 +216,13 @@
 <body>
   <header>
     <img src="HOG_Prod_Logo_couleurs_3.png" alt="Photo de profil" />
+    <h1>HallofGameFR</h1>
     <nav>
       <a href="#accueil">Accueil</a>
       <a href="#videos">Vidéos</a>
       <a href="#schedule">Planning</a>
       <a href="#contact">Contact</a>
-      <button id="notif-button">🔔 Activer les notifications</button>
+      <a id="notif-button" href="#">🔔 Activer les notifications</a>
     </nav>
   </header>
 
@@ -333,6 +334,7 @@
   </script>
 </body>
 </html>
+
 
 
 
